@@ -47,8 +47,6 @@ Type objective_function<Type>::operator() ()
   PARAMETER_VECTOR(log_lambda_dive); // dive log smoothing parameter
   PARAMETER_VECTOR(log_lambda_surf); // surface log smoothing parameter
   PARAMETER_VECTOR(log_rf_sd); // standard deviations for discrete random effects
-  PARAMETER(decay_dive); // dive penalty decay rate
-  PARAMETER(decay_surf); // surface penalty decay rate 
   PARAMETER_VECTOR(s_dive); // dive random effects
   PARAMETER_VECTOR(s_surf); // surface random effects
   PARAMETER_VECTOR(rf_dive); // discrete random effect for dive 
@@ -59,9 +57,7 @@ Type objective_function<Type>::operator() ()
   Type kappa_dive = exp(log_kappa_dive); 
   Type kappa_surf = exp(log_kappa_surf); 
   vector<Type> rf_sd = exp(log_rf_sd); 
-  Type decay_dive_pow = exp(decay_dive);// + Type(1.0); 
-  Type decay_surf_pow = exp(decay_surf);// + Type(1.0); 
-  
+
   // Negative log-likelihood
   Type nll = 0;
   
